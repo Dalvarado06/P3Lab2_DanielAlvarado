@@ -107,7 +107,7 @@ int aritmetica(int valorX) {
 
     cout << valorX << " = ";
 
-    while (valorX != 1) {
+    while (valorX != 1 && valorX != 0) {
 
         if (valorX % arrayPrimos[a] == 0) {
             valorX /= arrayPrimos[a];
@@ -122,6 +122,11 @@ int aritmetica(int valorX) {
 
     }
     cout << arrayPrimos[a] << "^ " << cont << ";" << endl << endl;
+
+    if (valorX == 0) {
+        cout << "No se puede calcular ese valor :v";
+    }
+
     cout << endl << endl;
 }
 
@@ -129,13 +134,52 @@ int aritmetica(int valorX) {
 
 void pascalTriangle(int size) {
 
-    int array [size] = {1};
+    int inValue = 4;
+    int array [3] = {1, 2, 1};
+    int mainSize = 3;
+    int arr[inValue] = {1, array[0]+array[1], array[1]+array[2], 1};
 
-
-    for (int i = 0; i < size; i++) {
-
-
+    
+    cout << 1 << endl;
+    cout << 1 << ", " << 1 << endl;
+    
+    for (int i = 0; i < mainSize; i++){
+        cout << array[i] << ", "; 
     }
+    
+    cout << endl;
+    
+    for (int i = inValue; i <= size; i++) {
+        int arr2 [inValue] = {};
+        
+        for(int j = 0; j < inValue; j++){
+            
+            if(j == 0 || j== inValue-1){
+                arr2[j] = 1;
+            }else{
+                arr2[j] = array[j] + array[j+1];
+            }
+        }
+        
+        for (int k = 0; k < inValue; k++){
+            cout << arr2[k] << ", ";
+        }
+        
+        
+        cout << endl;
+        
+        int array [inValue-1] = {};
+        
+        for (int m = 0; m < inValue-1; m++){
+            array[m] = arr[m];
+        }
+        
+        inValue++;
+    }
+    
+    cout << endl << endl;
+    \
+
 }
 
 double taylorSeries(double x) {
@@ -157,7 +201,7 @@ double taylorSeries(double x) {
         //cout <<facto << endl;
         //cout << poten << endl;
         //cout << result <<endl;
-        
+
         n++;
     }
 
